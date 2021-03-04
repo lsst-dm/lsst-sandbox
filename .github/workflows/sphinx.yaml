@@ -34,7 +34,7 @@ jobs:
             ${{ runner.os }}-pip-
 
       - name: Install dependencies
-        run: python3 -m pip install -r ./docs/sphinx-requirements.txt
+        run: python3 -m pip install -r ./.github/workflows/sphinx-requirements.txt
 
       - run: mkdocs build
 
