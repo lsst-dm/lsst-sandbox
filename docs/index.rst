@@ -8,4 +8,5 @@ The LSST Sandbox is a development environment for projects that need a robust me
    :maxdepth: 2
    :caption: Contents:
 
+   documentation
    infrastructure
