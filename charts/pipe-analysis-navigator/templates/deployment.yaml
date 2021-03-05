@@ -1,0 +1,19 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pipe-analysis-navigator
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: pipe-analysis-navigator
+  template:
+    metadata:
+      labels:
+        app: pipe-analysis-navigator
+    spec:
+      containers:
+      - name: pipe-analysis-navigator
+        image: pipe-analysis-navigator:latest
+        imagePullPolicy: Always

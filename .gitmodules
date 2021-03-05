@@ -1,0 +1,4 @@
+[submodule "src/pipe-analysis-navigator"]
+	path = src/pipe-analysis-navigator
+	url = https://github.com/timothydmorton/pipe-analysis-navigator
+	branch = main
