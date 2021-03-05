@@ -14,7 +14,7 @@ RUN conda --version
 
 # Install panel & dask
 
-RUN conda install -c holoviz panel \
+RUN conda install -c pyviz holoviz panel \
     && conda install dask-kubernetes -c conda-forge
 
 # Clone dashboard repo

@@ -1,4 +1,5 @@
 hostname: lsst-sandbox.ncsa.illinois.edu
+# Include leading forward slash in basePath
 basePath: /pipe-analysis-navigator
 image:
   repository: lsstdm/pipe-analysis-navigator
