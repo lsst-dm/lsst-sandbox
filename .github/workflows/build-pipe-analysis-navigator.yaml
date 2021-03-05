@@ -6,6 +6,7 @@ on:
       - 'master'
     paths:
     - 'src/pipe-analysis-navigator/**'
+    - 'charts/pipe-analysis-navigator/**'
 
 jobs:
   docker:
