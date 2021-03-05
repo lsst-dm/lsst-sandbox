@@ -15,5 +15,5 @@ spec:
     spec:
       containers:
       - name: pipe-analysis-navigator
-        image: pipe-analysis-navigator:latest
+        image: {{ .Values.image.repository }}:{{ .Values.image.tag }}
         imagePullPolicy: Always
