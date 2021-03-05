@@ -1,5 +1,5 @@
 hostname: lsst-sandbox.ncsa.illinois.edu
-baseUrl: /pipe-analysis-navigator
+basePath: /pipe-analysis-navigator
 image:
   repository: lsstdm/pipe-analysis-navigator
   tag: latest
