@@ -1,12 +1,12 @@
-name: pipe-analysis-navigator
+name: pipe-analysis-navigator-base
 
 on:
   push:
     branches:
       - 'master'
     paths:
-    - 'src/pipe-analysis-navigator/**'
-    - '.github/workflows/build-pipe-analysis-navigator.yaml'
+    - 'src/pipe-analysis-navigator/src/Dockerfile'
+    - '.github/workflows/build-pipe-analysis-navigator-base.yaml'
 
 jobs:
   docker:
@@ -34,9 +34,9 @@ jobs:
         id: docker_build
         uses: docker/build-push-action@v2
         with:
-          context: src/pipe-analysis-navigator
+          context: src/pipe-analysis-navigator/src
           push: true
-          tags: lsstdm/pipe-analysis-navigator:latest
+          tags: lsstdm/pipe-analysis-navigator-base:latest
       -
         name: Image digest
         run: echo ${{ steps.docker_build.outputs.digest }}
