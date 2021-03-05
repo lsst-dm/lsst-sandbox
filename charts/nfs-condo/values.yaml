@@ -1,0 +1,10 @@
+nfs-client-provisioner:
+  storageClass:
+    name: nfs-condo
+    archiveOnDelete: false
+    reclaimPolicy: Retain
+    defaultClass: true
+
+  nfs:
+    server: radiant-nfs.ncsa.illinois.edu
+    path: /radiant/projects/bbdr/lsst-sandbox
