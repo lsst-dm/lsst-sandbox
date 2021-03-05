@@ -1,9 +1,11 @@
-name: ci
+name: landing page
 
 on:
   push:
     branches:
       - 'master'
+    paths:
+    - 'src/landing-page/**'
 
 jobs:
   docker:
