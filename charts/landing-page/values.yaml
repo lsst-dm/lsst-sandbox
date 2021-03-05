@@ -1,0 +1,3 @@
+nginx:
+  staticSiteConfigmap: landing-page-static-content
+hostname: lsst-sandbox.ncsa.illinois.edu
