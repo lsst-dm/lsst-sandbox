@@ -1,0 +1,6 @@
+dependencies:
+- name: traefik
+  repository: https://charts.helm.sh/stable/
+  version: 1.87.7
+digest: sha256:5148f00760bfa786ebdcae6f338b3acc211bd725652d3d0dda36f2d456443f12
+generated: "2021-03-04T12:12:24.869749115-06:00"

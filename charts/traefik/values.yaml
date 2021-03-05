@@ -1,0 +1,42 @@
+traefik:
+  rbac:
+    enabled: true
+  ssl:
+    enabled: true
+    enforced: true
+    insecureSkipVerify: true
+    tlsMinVersion: VersionTLS12
+    cipherSuites:
+      - TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+      - TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+      - TLS_ECDHE_ECDSA_WITH_CHACHA20_POLY1305
+      - TLS_ECDHE_RSA_WITH_CHACHA20_POLY1305
+  acme:
+    enabled: true
+    challengeType: http-01
+    email: manninga@illinois.edu
+    staging: false
+    logging: true
+    persistence:
+      enabled: true
+      storageClass: nfs-condo
+      accessMode: ReadWriteMany
+  metrics:
+    prometheus:
+      enabled: true
+  kubernetes:
+    ingressEndpoint:
+      useDefaultPublishedService: true
+  priorityClassName: "system-cluster-critical"
+  # image: "rancher/library-traefik"
+  tolerations:
+    - key: "CriticalAddonsOnly"
+      operator: "Exists"
+    - key: "node-role.kubernetes.io/control-plane"
+      operator: "Exists"
+      effect: "NoSchedule"
+    - key: "node-role.kubernetes.io/master"
+      operator: "Exists"
+      effect: "NoSchedule"
