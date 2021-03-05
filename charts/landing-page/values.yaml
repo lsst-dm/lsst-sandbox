@@ -2,6 +2,6 @@ nginx:
   staticSiteConfigmap: landing-page-static-content
 hostname: lsst-sandbox.ncsa.illinois.edu
 image:
-  repository: lsst-dm/landing-page
+  repository: lsstdm/landing-page
   tag: latest
   
