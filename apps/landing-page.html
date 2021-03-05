@@ -91,7 +91,11 @@
 </ul>
 <p class="caption"><span class="caption-text">Apps</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Landing Page</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Landing Page</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#build">Build</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#deploy">Deploy</a></li>
+</ul>
+</li>
 </ul>
 
             
@@ -161,7 +165,12 @@
             
   <div class="section" id="landing-page">
 <h1>Landing Page<a class="headerlink" href="#landing-page" title="Permalink to this headline">¶</a></h1>
-<p>Deploy:</p>
+<div class="section" id="build">
+<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
+<p>The landing page container image is built automatically by GitHub Actions when a commit modifying the <code class="docutils literal notranslate"><span class="pre">src/landing-page</span></code> folder is pushed to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. See <code class="docutils literal notranslate"><span class="pre">.github/workflows/build-landing-page.yaml</span></code>.</p>
+</div>
+<div class="section" id="deploy">
+<h2>Deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">helm</span> <span class="n">repo</span> <span class="n">add</span> <span class="n">stable</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">charts</span><span class="o">.</span><span class="n">helm</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span>
 <span class="n">helm</span> <span class="n">repo</span> <span class="n">update</span>
 <span class="n">cd</span> <span class="n">charts</span><span class="o">/</span><span class="n">landing</span><span class="o">-</span><span class="n">page</span><span class="o">/</span>
@@ -169,6 +178,7 @@
 <span class="n">cd</span> <span class="o">../..</span>
 <span class="n">helm</span> <span class="n">upgrade</span> <span class="o">--</span><span class="n">install</span> <span class="n">landing</span><span class="o">-</span><span class="n">page</span> <span class="n">charts</span><span class="o">/</span><span class="n">landing</span><span class="o">-</span><span class="n">page</span>
 </pre></div>
+</div>
 </div>
 </div>
 
