@@ -6,7 +6,14 @@ The LSST Sandbox is a development environment for projects that need a robust me
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
+   :caption: Infrastructure
+   :glob:
 
-   documentation
-   infrastructure
+   infrastructure/*
+
+.. toctree::
+   :maxdepth: 2
+   :caption: Apps
+   :glob:
+
+   apps/*

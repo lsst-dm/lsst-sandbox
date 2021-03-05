@@ -7,12 +7,12 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Documentation &mdash; LSST Sandbox  documentation</title>
+  <title>Documentation system &mdash; LSST Sandbox  documentation</title>
   
 
   
-  <link rel="stylesheet" href="_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
 
   
   
@@ -24,22 +24,22 @@
 
   
   <!--[if lt IE 9]>
-    <script src="_static/js/html5shiv.min.js"></script>
+    <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
     
-      <script type="text/javascript" id="documentation_options" data-url_root="./" src="_static/documentation_options.js"></script>
-        <script src="_static/jquery.js"></script>
-        <script src="_static/underscore.js"></script>
-        <script src="_static/doctools.js"></script>
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script src="../_static/jquery.js"></script>
+        <script src="../_static/underscore.js"></script>
+        <script src="../_static/doctools.js"></script>
     
-    <script type="text/javascript" src="_static/js/theme.js"></script>
+    <script type="text/javascript" src="../_static/js/theme.js"></script>
 
     
-    <link rel="index" title="Index" href="genindex.html" />
-    <link rel="search" title="Search" href="search.html" />
-    <link rel="next" title="Infrastructure" href="infrastructure.html" />
-    <link rel="prev" title="LSST Sandbox" href="index.html" /> 
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Host node provisioning" href="infrastructure.html" />
+    <link rel="prev" title="LSST Sandbox" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -53,7 +53,7 @@
           
 
           
-            <a href="index.html" class="icon icon-home"> LSST Sandbox
+            <a href="../index.html" class="icon icon-home"> LSST Sandbox
           
 
           
@@ -66,7 +66,7 @@
 
           
 <div role="search">
-  <form id="rtd-search-form" class="wy-form" action="search.html" method="get">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
     <input type="hidden" name="check_keywords" value="yes" />
     <input type="hidden" name="area" value="default" />
@@ -84,10 +84,15 @@
               
             
             
-              <p class="caption"><span class="caption-text">Contents:</span></p>
+              <p class="caption"><span class="caption-text">Infrastructure</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation</a></li>
-<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Infrastructure</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation system</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Host node provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes (k3s)</a></li>
+</ul>
+<p class="caption"><span class="caption-text">Apps</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../apps/landing-page.html">Landing Page</a></li>
 </ul>
 
             
@@ -103,7 +108,7 @@
       <nav class="wy-nav-top" aria-label="top navigation">
         
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="index.html">LSST Sandbox</a>
+          <a href="../index.html">LSST Sandbox</a>
         
       </nav>
 
@@ -134,15 +139,15 @@
 
   <ul class="wy-breadcrumbs">
     
-      <li><a href="index.html" class="icon icon-home"></a> &raquo;</li>
+      <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Documentation</li>
+      <li>Documentation system</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="_sources/documentation.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/infrastructure/documentation.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -155,8 +160,8 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="documentation">
-<h1>Documentation<a class="headerlink" href="#documentation" title="Permalink to this headline">¶</a></h1>
+  <div class="section" id="documentation-system">
+<h1>Documentation system<a class="headerlink" href="#documentation-system" title="Permalink to this headline">¶</a></h1>
 <p>The documentation system uses Python-based Sphinx to build a static HTML website from the ReST and Markdown formatted source files in the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder. This build is executed automatically via GitHub Actions when commits to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch are pushed. This system is based on <a class="reference external" href="https://stackoverflow.com/a/64311970">this StackOverflow answer</a>.</p>
 <p>The generated docs are available at <a class="reference external" href="https://lsst-dm.github.io/lsst-sandbox/index.html">the GitHub Pages site</a>.</p>
 </div>
@@ -167,8 +172,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="infrastructure.html" class="btn btn-neutral float-right" title="Infrastructure" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="index.html" class="btn btn-neutral float-left" title="LSST Sandbox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="infrastructure.html" class="btn btn-neutral float-right" title="Host node provisioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="LSST Sandbox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
