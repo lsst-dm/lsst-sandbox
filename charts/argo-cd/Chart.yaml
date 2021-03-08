@@ -1,0 +1,12 @@
+# This chart template was taken from 
+#   https://www.arthurkoziel.com/setting-up-argocd-with-helm/
+# and is based on the configuration files in the associated git repo
+#   https://github.com/arthurk/argocd-example-install/
+apiVersion: v2
+name: argo-cd
+version: 1.0.0
+icon: https://argoproj.github.io/argo-cd/assets/logo.png
+dependencies:
+  - name: argo-cd
+    version: 2.11.0
+    repository: https://argoproj.github.io/argo-helm
