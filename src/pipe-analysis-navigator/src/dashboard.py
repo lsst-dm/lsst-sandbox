@@ -1,6 +1,6 @@
 import sys
 
-# import pandas as pd
+import pandas as pd
 import panel as pn
 
 from navigator.config import categories, filters, datastyles
