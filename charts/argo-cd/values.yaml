@@ -1,3 +1,5 @@
+hostname: lsst-sandbox.ncsa.illinois.edu
+basePath: argocd
 argo-cd:
   installCRDs: false
   global:
@@ -5,8 +7,13 @@ argo-cd:
       tag: v1.8.1
   server:
     extraArgs:
-      # Since ArgoCD web GUI will only be accessed via secure `kubectl port-forward` no TLS is necessary.
+      # Since ArgoCD web GUI will secured behind `kubectl port-forward` 
+      # or the reverse proxy of the ingress controller.
       - --insecure
+      - --rootpath
+      - /argo-cd
+      - --basehref
+      - /argo-cd
     config:
       # If the git repo in which this is defined is private, then you need to create a secret containing the repo
       # authentication credentials and URL so that when you allow ArgoCD to manage itself it can bootstrap properly.
@@ -39,3 +46,14 @@ argo-cd:
               hs = {}
               hs.status = "Healthy"
               return hs
+      url: https://lsst-sandbox.ncsa.illinois.edu/argo-cd
+      dex.config: |
+        connectors:
+          - type: github
+            id: github
+            name: GitHub
+            config:
+              clientID: $dex.github.clientId
+              clientSecret: $dex.github.clientSecret
+              orgs:
+              - name: lsst-dm
