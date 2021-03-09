@@ -1,0 +1,4 @@
+apiVersion: v1
+description: Demo for how to create and use Vault for secrets 
+name: secrets-demo
+version: 1.0.0
