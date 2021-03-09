@@ -1,4 +1,4 @@
-hostname: lsst-sandbox.ncsa.illinois.edu
+hostname: vault.lsst-sandbox.ncsa.illinois.edu
 vault:
   server:
     affinity: ""
