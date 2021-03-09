@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Documentation system &mdash; LSST Sandbox  documentation</title>
+  <title>ArgoCD &mdash; LSST Sandbox  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Host node provisioning" href="infrastructure.html" />
-    <link rel="prev" title="ArgoCD" href="argocd.html" /> 
+    <link rel="next" title="Documentation system" href="documentation.html" />
+    <link rel="prev" title="LSST Sandbox" href="../index.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,8 +86,12 @@
             
               <p class="caption"><span class="caption-text">Infrastructure</span></p>
 <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="argocd.html">ArgoCD</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Documentation system</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">ArgoCD</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#foundation">Foundation</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#app-development">App development</a></li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes (k3s)</a></li>
 </ul>
@@ -142,13 +146,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Documentation system</li>
+      <li>ArgoCD</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/infrastructure/documentation.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/infrastructure/argocd.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -161,10 +165,21 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="documentation-system">
-<h1>Documentation system<a class="headerlink" href="#documentation-system" title="Permalink to this headline">¶</a></h1>
-<p>The documentation system uses Python-based Sphinx to build a static HTML website from the ReST and Markdown formatted source files in the <code class="docutils literal notranslate"><span class="pre">/docs</span></code> folder. This build is executed automatically via GitHub Actions when commits to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch are pushed. This system is based on <a class="reference external" href="https://stackoverflow.com/a/64311970">this StackOverflow answer</a>.</p>
-<p>The generated docs are available at <a class="reference external" href="https://lsst-dm.github.io/lsst-sandbox/index.html">the GitHub Pages site</a>.</p>
+  <div class="section" id="argocd">
+<h1>ArgoCD<a class="headerlink" href="#argocd" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="foundation">
+<h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline">¶</a></h2>
+<p>ArgoCD (https://lsst-sandbox.ncsa.illinois.edu/argo-cd) is installed for both Kubernetes cluster admin deployments of global services and components and for individual developers to use for app development. The ArgoCD applications defined by the admin in the <code class="docutils literal notranslate"><span class="pre">default</span></code> project follow the “<a class="reference external" href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#app-of-apps">app of apps</a>” pattern by creating a parent <code class="docutils literal notranslate"><span class="pre">root</span></code> app that includes separately defined apps in a hierarchical way.</p>
+<p>Following <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">this documentation</a>, GitHub has been added as an identity provider for authentication to the ArgoCD sevice. The <a class="reference external" href="https://github.com/settings/developers">GitHub Oauth application definition</a> was created through the admin’s personal GitHub account.</p>
+</div>
+<div class="section" id="app-development">
+<h2>App development<a class="headerlink" href="#app-development" title="Permalink to this headline">¶</a></h2>
+<p>Members of the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> GitHub organization can use the “Log in via GitHub” button. They have shared access to the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> ArgoCD application project, allowing them to create applications from independent GitHub repositories. The application definitions <strong>must</strong>:</p>
+<ul class="simple">
+<li><p>Reside in a namespace with the prefix <code class="docutils literal notranslate"><span class="pre">lsst-dm-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">lsst-dm-my-app</span></code>)</p></li>
+<li><p>Reference a git repository within the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> organization namespace on GitHub (i.e. <code class="docutils literal notranslate"><span class="pre">https://github.com/lsst-dm/*</span></code>)</p></li>
+</ul>
+</div>
 </div>
 
 
@@ -173,8 +188,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="infrastructure.html" class="btn btn-neutral float-right" title="Host node provisioning" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="argocd.html" class="btn btn-neutral float-left" title="ArgoCD" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="../index.html" class="btn btn-neutral float-left" title="LSST Sandbox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
