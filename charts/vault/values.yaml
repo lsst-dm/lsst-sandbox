@@ -1,0 +1,29 @@
+vault:
+  server:
+    affinity: ""
+    ha:
+      enabled: true
+      replicas: 1
+consul:
+  client:
+    enabled: true
+  server:
+    replicas: 1
+    bootstrapExpect: 1
+    disruptionBudget:
+      maxUnavailable: 0
+    # This defines the disk size for configuring the
+    # servers' StatefulSet storage. For dynamically provisioned storage classes, this is the
+    # desired size. For manually defined persistent volumes, this should be set to
+    # the disk size of the attached volume.
+    storage: 1Gi
+
+    # The StorageClass to use for the servers' StatefulSet storage. It must be
+    # able to be dynamically provisioned if you want the storage
+    # to be automatically created. For example, to use local
+    # (https://kubernetes.io/docs/concepts/storage/storage-classes/#local)
+    # storage classes, the PersistentVolumeClaims would need to be manually created.
+    # A `null` value will use the Kubernetes cluster's default StorageClass. If a default
+    # StorageClass does not exist, you will need to create one.
+    # @type: string
+    storageClass: nfs-condo
