@@ -89,6 +89,7 @@
 <li class="toctree-l1 current"><a class="current reference internal" href="#">ArgoCD</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="#foundation">Foundation</a></li>
 <li class="toctree-l2"><a class="reference internal" href="#app-development">App development</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#command-line-access">Command line access</a></li>
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation system</a></li>
@@ -179,6 +180,19 @@
 <li><p>Reside in a namespace with the prefix <code class="docutils literal notranslate"><span class="pre">lsst-dm-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">lsst-dm-my-app</span></code>)</p></li>
 <li><p>Reference a git repository within the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> organization namespace on GitHub (i.e. <code class="docutils literal notranslate"><span class="pre">https://github.com/lsst-dm/*</span></code>)</p></li>
 </ul>
+</div>
+<div class="section" id="command-line-access">
+<h2>Command line access<a class="headerlink" href="#command-line-access" title="Permalink to this headline">¶</a></h2>
+<p>To use the local <a class="reference external" href="https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli">ArgoCD CLI</a>, use the more complex login command, which will open a browser window to complete the GitHub authentication:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ argocd login lsst-sandbox.ncsa.illinois.edu --grpc-web-root-path /argo-cd --sso
+
+Opening browser for authentication
+Performing authorization_code flow login: https://lsst-sandbox.ncsa.illinois.edu/argo-cd/api/dex/auth?access_type=offline&amp;client_id=argo-cd-cli&amp;code_challenge=_WcC...xU&amp;code_challenge_method=S256&amp;redirect_uri=http%3A%2F%2Flocalhost%3A8085%2Fauth%2Fcallback&amp;response_type=code&amp;scope=openid+profile+email+groups+offline_access&amp;state=XFlqXMCGVO
+Authentication successful
+&#39;manninga@illinois.edu&#39; logged in successfully
+Context &#39;lsst-sandbox.ncsa.illinois.edu:443/argo-cd&#39; updated
+</pre></div>
+</div>
 </div>
 </div>
 
