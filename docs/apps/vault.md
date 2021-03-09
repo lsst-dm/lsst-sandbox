@@ -1,7 +1,7 @@
 Vault
 ============================
 
-To login and access the Vault, [create a personal access token](https://github.com/settings/tokens/new) in your GitHub user settings, selecting only scopes:
+To login and access the Vault, [create a personal access token](https://github.com/settings/tokens/new) in your GitHub user settings (you might label it "LSST Sandbox Vault"), selecting only scopes:
 
 * `read:org`
 * `read:user`
