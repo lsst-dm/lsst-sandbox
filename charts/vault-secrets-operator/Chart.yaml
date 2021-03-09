@@ -1,0 +1,10 @@
+apiVersion: v2
+appVersion: "1.0"
+description: Vault Secrets Operator
+name: vault-secret-operator
+version: 0.1.1
+icon: https://raw.githubusercontent.com/ricoberger/vault-secrets-operator/master/assets/logo.png
+dependencies:
+- name: vault-secrets-operator
+  version: ~1.11.0
+  repository: https://ricoberger.github.io/helm-charts/
