@@ -15,3 +15,18 @@ Members of the `lsst-dm` GitHub organization can use the "Log in via GitHub" but
 
 * Reside in a namespace with the prefix `lsst-dm-` (e.g. `lsst-dm-my-app`)
 * Reference a git repository within the `lsst-dm` organization namespace on GitHub (i.e. `https://github.com/lsst-dm/*`)
+
+Command line access
+-------------------------------------
+
+To use the local [ArgoCD CLI](https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli), use the more complex login command, which will open a browser window to complete the GitHub authentication:
+
+```
+$ argocd login lsst-sandbox.ncsa.illinois.edu --grpc-web-root-path /argo-cd --sso
+
+Opening browser for authentication
+Performing authorization_code flow login: https://lsst-sandbox.ncsa.illinois.edu/argo-cd/api/dex/auth?access_type=offline&client_id=argo-cd-cli&code_challenge=_WcC...xU&code_challenge_method=S256&redirect_uri=http%3A%2F%2Flocalhost%3A8085%2Fauth%2Fcallback&response_type=code&scope=openid+profile+email+groups+offline_access&state=XFlqXMCGVO
+Authentication successful
+'manninga@illinois.edu' logged in successfully
+Context 'lsst-sandbox.ncsa.illinois.edu:443/argo-cd' updated
+```
