@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Host node provisioning &mdash; LSST Sandbox  documentation</title>
+  <title>Vault &mdash; LSST Sandbox  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Kubernetes (k3s)" href="kubernetes.html" />
-    <link rel="prev" title="Documentation system" href="documentation.html" /> 
+    <link rel="next" title="Vault Secrets Operator (VSO)" href="vault-secrets-operator.html" />
+    <link rel="prev" title="Kubernetes (k3s)" href="kubernetes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -93,9 +93,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="argocd.html">ArgoCD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation system</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Host node provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes (k3s)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vault</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
 </ul>
 
@@ -145,13 +145,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Host node provisioning</li>
+      <li>Vault</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/infrastructure/infrastructure.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/infrastructure/vault.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -164,13 +164,95 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="host-node-provisioning">
-<h1>Host node provisioning<a class="headerlink" href="#host-node-provisioning" title="Permalink to this headline">¶</a></h1>
-<p>Using Radiant project account <code class="docutils literal notranslate"><span class="pre">bbdr</span></code>, I followed the <a class="reference external" href="https://wiki.ncsa.illinois.edu/display/ICI/Creating+new+instances#Creatingnewinstances-SecurityGroups">Radiant instance creation guide</a> to create a m1.large (4vCPU/8GB) VM.</p>
-<p>Installed <a class="reference external" href="https://k3s.io/">k3s</a> and updated system packages (apt upgrade).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>manninga@darkmatter$ kubectl get node
-NAME           STATUS   ROLES                  AGE   VERSION
-lsst-sandbox   Ready    control-plane,master   21m   v1.20.4+k3s1
+  <div class="section" id="vault">
+<h1>Vault<a class="headerlink" href="#vault" title="Permalink to this headline">¶</a></h1>
+<p>Manually create the <code class="docutils literal notranslate"><span class="pre">vault</span></code> namespace so that the app can deploy.</p>
+<p>Initialize and unseal the vault:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ kubectl exec -n vault -it vault-0 -- sh
+
+/ $ vault operator init
+Unseal Key 1: yo***Us
+Unseal Key 2: Uq***8W
+Unseal Key 3: Pm***Hv
+Unseal Key 4: 2k***/o
+Unseal Key 5: 3t***1f
+
+Initial Root Token: s.N7***NE
+
+Vault initialized with 5 key shares and a key threshold of 3. Please securely
+distribute the key shares printed above. When the Vault is re-sealed,
+restarted, or stopped, you must supply at least 3 of these keys to unseal it
+before it can start servicing requests.
+
+Vault does not store the generated master key. Without at least 3 key to
+reconstruct the master key, Vault will remain permanently sealed!
+
+It is possible to generate new unseal keys, provided you have a quorum of
+existing unseal keys shares. See &quot;vault operator rekey&quot; for more information.
+
+/ $ vault operator unseal yo***Us 
+Key                Value
+---                -----
+Seal Type          shamir
+Initialized        true
+Sealed             true
+Total Shares       5
+Threshold          3
+Unseal Progress    1/3
+Unseal Nonce       7e44f989-3ee4-cca8-36fb-e6b4691e4c2e
+Version            1.5.4
+HA Enabled         true
+
+/ $ vault operator unseal Uq***8W
+Key                Value
+---                -----
+Seal Type          shamir
+Initialized        true
+Sealed             true
+Total Shares       5
+Threshold          3
+Unseal Progress    2/3
+Unseal Nonce       7e44f989-3ee4-cca8-36fb-e6b4691e4c2e
+Version            1.5.4
+HA Enabled         true
+
+/ $ vault operator unseal Pm***Hv
+Key             Value
+---             -----
+Seal Type       shamir
+Initialized     true
+Sealed          false
+Total Shares    5
+Threshold       3
+Version         1.5.4
+Cluster Name    vault-cluster-b7f4fe8f
+Cluster ID      e5ea8b90-3781-1ccd-b159-7fd89fdd9aa1
+HA Enabled      true
+HA Cluster      https://vault-0.vault-internal:8201
+HA Mode         active
+</pre></div>
+</div>
+<p>Follow <a class="reference external" href="https://learn.hashicorp.com/tutorials/vault/getting-started-authentication">this guide</a> to enable GitHub authentication.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>/ $ vault login s.N***E
+Success! You are now authenticated. The token information displayed below
+is already stored in the token helper. You do NOT need to run &quot;vault login&quot;
+again. Future Vault requests will automatically use this token.
+
+Key                  Value
+---                  -----
+token                s.N***E
+token_accessor       H9***n
+token_duration       ∞
+token_renewable      false
+token_policies       [&quot;root&quot;]
+identity_policies    []
+policies             [&quot;root&quot;]
+
+/ $ vault auth enable github
+Success! Enabled github auth method at: github/
+
+/ $ vault write auth/github/config organization=lsst-dm
+Success! Data written to: auth/github/config
 </pre></div>
 </div>
 </div>
@@ -181,8 +263,8 @@ lsst-sandbox   Ready    control-plane,master   21m   v1.20.4+k3s1
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="kubernetes.html" class="btn btn-neutral float-right" title="Kubernetes (k3s)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vault-secrets-operator.html" class="btn btn-neutral float-right" title="Vault Secrets Operator (VSO)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kubernetes.html" class="btn btn-neutral float-left" title="Kubernetes (k3s)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

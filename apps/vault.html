@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Landing Page &mdash; LSST Sandbox  documentation</title>
+  <title>Vault &mdash; LSST Sandbox  documentation</title>
   
 
   
@@ -38,8 +38,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Vault" href="vault.html" />
-    <link rel="prev" title="LSST Sandbox" href="../index.html" /> 
+    <link rel="next" title="ArgoCD" href="../infrastructure/argocd.html" />
+    <link rel="prev" title="Landing Page" href="landing-page.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -86,12 +86,8 @@
             
               <p class="caption"><span class="caption-text">Apps</span></p>
 <ul class="current">
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Landing Page</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="#build">Build</a></li>
-<li class="toctree-l2"><a class="reference internal" href="#deploy">Deploy</a></li>
-</ul>
-</li>
-<li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
+<li class="toctree-l1"><a class="reference internal" href="landing-page.html">Landing Page</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vault</a></li>
 </ul>
 <p class="caption"><span class="caption-text">Infrastructure</span></p>
 <ul>
@@ -149,13 +145,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Landing Page</li>
+      <li>Vault</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/apps/landing-page.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/apps/vault.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,23 +164,15 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="landing-page">
-<h1>Landing Page<a class="headerlink" href="#landing-page" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="build">
-<h2>Build<a class="headerlink" href="#build" title="Permalink to this headline">¶</a></h2>
-<p>The landing page container image is built automatically by GitHub Actions when a commit modifying the <code class="docutils literal notranslate"><span class="pre">src/landing-page</span></code> folder is pushed to the <code class="docutils literal notranslate"><span class="pre">master</span></code> branch. See <code class="docutils literal notranslate"><span class="pre">.github/workflows/build-landing-page.yaml</span></code>.</p>
-</div>
-<div class="section" id="deploy">
-<h2>Deploy<a class="headerlink" href="#deploy" title="Permalink to this headline">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">helm</span> <span class="n">repo</span> <span class="n">add</span> <span class="n">stable</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">charts</span><span class="o">.</span><span class="n">helm</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span>
-<span class="n">helm</span> <span class="n">repo</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="n">charts</span><span class="o">/</span><span class="n">landing</span><span class="o">-</span><span class="n">page</span><span class="o">/</span>
-<span class="n">helm</span> <span class="n">dep</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="o">../..</span>
-<span class="n">helm</span> <span class="n">upgrade</span> <span class="o">--</span><span class="n">install</span> <span class="n">landing</span><span class="o">-</span><span class="n">page</span> <span class="n">charts</span><span class="o">/</span><span class="n">landing</span><span class="o">-</span><span class="n">page</span>
-</pre></div>
-</div>
-</div>
+  <div class="section" id="vault">
+<h1>Vault<a class="headerlink" href="#vault" title="Permalink to this headline">¶</a></h1>
+<p>To login and access the Vault, <a class="reference external" href="https://github.com/settings/tokens/new">create a personal access token</a> in your GitHub user settings, selecting only scopes:</p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">read:org</span></code></p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">read:user</span></code></p></li>
+</ul>
+<p><em><strong>WARNING: You must keep your access token secure.</strong></em></p>
+<p>Open the page https://vault.lsst-sandbox.ncsa.illinois.edu/, select the GitHub sign in method, and enter your token.</p>
 </div>
 
 
@@ -193,8 +181,8 @@
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="vault.html" class="btn btn-neutral float-right" title="Vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../index.html" class="btn btn-neutral float-left" title="LSST Sandbox" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="../infrastructure/argocd.html" class="btn btn-neutral float-right" title="ArgoCD" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="landing-page.html" class="btn btn-neutral float-left" title="Landing Page" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
