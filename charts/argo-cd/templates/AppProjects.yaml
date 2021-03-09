@@ -1,0 +1,18 @@
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: lsst-dm
+spec:
+  destinations:
+  - namespace: 'lsst-dm-*'
+    server: '*'
+  sourceRepos:
+  - https://github.com/lsst-dm/*  
+  - https://github.com/argoproj/*  
+  roles:
+  - name: lsst-dm-admin
+    groups:
+    - lsst-dm:Data Management
+    policies:
+    - p, proj:lsst-dm:lsst-dm-admin, applications, *, lsst-dm/*, allow
