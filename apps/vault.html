@@ -87,7 +87,11 @@
               <p class="caption"><span class="caption-text">Apps</span></p>
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="landing-page.html">Landing Page</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Vault</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Vault</a><ul>
+<li class="toctree-l2"><a class="reference internal" href="#create-a-github-access-token">Create a GitHub access token</a></li>
+<li class="toctree-l2"><a class="reference internal" href="#how-to-create-and-use-secrets">How to create and use secrets</a></li>
+</ul>
+</li>
 </ul>
 <p class="caption"><span class="caption-text">Infrastructure</span></p>
 <ul>
@@ -166,13 +170,33 @@
             
   <div class="section" id="vault">
 <h1>Vault<a class="headerlink" href="#vault" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="create-a-github-access-token">
+<h2>Create a GitHub access token<a class="headerlink" href="#create-a-github-access-token" title="Permalink to this headline">¶</a></h2>
 <p>To login and access the Vault, <a class="reference external" href="https://github.com/settings/tokens/new">create a personal access token</a> in your GitHub user settings (you might label it “LSST Sandbox Vault”), selecting only scopes:</p>
 <ul class="simple">
 <li><p><code class="docutils literal notranslate"><span class="pre">read:org</span></code></p></li>
 <li><p><code class="docutils literal notranslate"><span class="pre">read:user</span></code></p></li>
 </ul>
 <p><em><strong>WARNING: You must keep your access token secure.</strong></em></p>
-<p>Open the page https://vault.lsst-sandbox.ncsa.illinois.edu/, select the GitHub sign in method, and enter your token.</p>
+<p>Open the <a class="reference external" href="https://vault.lsst-sandbox.ncsa.illinois.edu/">Vault GUI</a>, select the GitHub sign in method, and enter your token.</p>
+</div>
+<div class="section" id="how-to-create-and-use-secrets">
+<h2>How to create and use secrets<a class="headerlink" href="#how-to-create-and-use-secrets" title="Permalink to this headline">¶</a></h2>
+<p>When you need to create a Kubernetes Secret resource for use in your apps, instead of defining a <code class="docutils literal notranslate"><span class="pre">Secret</span></code> resource directly, you define a <code class="docutils literal notranslate"><span class="pre">VaultSecret</span></code> resource like so:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">---</span>
+<span class="n">apiVersion</span><span class="p">:</span> <span class="n">ricoberger</span><span class="o">.</span><span class="n">de</span><span class="o">/</span><span class="n">v1alpha1</span>
+<span class="n">kind</span><span class="p">:</span> <span class="n">VaultSecret</span>
+<span class="n">metadata</span><span class="p">:</span>
+  <span class="n">name</span><span class="p">:</span> <span class="n">my</span><span class="o">-</span><span class="n">secret</span>
+<span class="n">spec</span><span class="p">:</span>
+  <span class="n">path</span><span class="p">:</span> <span class="n">kv</span><span class="o">/</span><span class="n">lsst</span><span class="o">-</span><span class="n">dm</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">app</span><span class="o">-</span><span class="n">repo</span><span class="o">/</span><span class="n">my</span><span class="o">-</span><span class="n">secret</span>
+  <span class="nb">type</span><span class="p">:</span> <span class="n">Opaque</span>
+</pre></div>
+</div>
+<p>The <code class="docutils literal notranslate"><span class="pre">VaultSecret</span></code> resource type is a custom resource definition (CRD) created by the Vault Secrets Operator (VSO) that is running on the cluster.</p>
+<p>In this example, the repo in which this app Helm chart is defined is <code class="docutils literal notranslate"><span class="pre">https://github.com/lsst-dm/my-app-repo</span></code>, and, by convention, a secret named <code class="docutils literal notranslate"><span class="pre">my-secret</span></code> should be stored in Vault at the path <code class="docutils literal notranslate"><span class="pre">kv/lsst-dm/my-app-repo/my-secret</span></code>.</p>
+<p>The next step is to create the secret in Vault. After logging into the <a class="reference external" href="https://vault.lsst-sandbox.ncsa.illinois.edu/">Vault GUI</a>, select <code class="docutils literal notranslate"><span class="pre">kv/</span></code> from the Secrets page and click “Create secret”. Enter the path <code class="docutils literal notranslate"><span class="pre">lsst-dm/my-app-repo/my-secret</span></code> and specify the key-value pairs that will populate the Kubernetes Secret resource that will be automatically created by your app via the VSO machinery. Click Save and you should see your app show Healthy and Synced in ArgoCD when the Secret is generated.</p>
+</div>
 </div>
 
 
