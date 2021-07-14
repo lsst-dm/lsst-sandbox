@@ -27,4 +27,4 @@ consul:
     # A `null` value will use the Kubernetes cluster's default StorageClass. If a default
     # StorageClass does not exist, you will need to create one.
     # @type: string
-    storageClass: nfs-condo
+    storageClass: longhorn
