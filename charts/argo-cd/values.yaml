@@ -30,6 +30,9 @@ argo-cd:
         - type: helm
           name: bitnami
           url: https://charts.bitnami.com/bitnami
+        - type: helm
+          name: longhorn
+          url: https://charts.longhorn.io
         - type: git
           url: https://github.com/lsst-dm/lsst-sandbox.git
       # Following the guides at 
