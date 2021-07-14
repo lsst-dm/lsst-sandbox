@@ -20,7 +20,7 @@ The LSST Sandbox is a development environment for projects that need a robust me
 Administration and Support
 -------------------------------------------
 
-The sysadmin of the LSST Sandbox is `T. Andrew Manning <https://lsstc.slack.com/team/UPU070294>`_.
+The sysadmin of the LSST Sandbox is `T. Andrew Manning <https://lsstc.slack.com/team/UPU070294>`_ (`@manning-ncsa:matrix.org <https://matrix.to/#/@manning-ncsa:matrix.org>`_).
 
 The Kubernetes cluster is `a VM instance <https://radiant.ncsa.illinois.edu/dashboard/project/instances/419c229f-0029-44af-bd1b-309c4254854b/>`_ hosted by the `NCSA Radiant system <https://wiki.ncsa.illinois.edu/pages/viewpage.action?spaceKey=ICI&title=Radiant>`_ in the ``bbdr`` project (ID ``dedb408d1b0a4aa0acdbf08180e4069e``).
 
