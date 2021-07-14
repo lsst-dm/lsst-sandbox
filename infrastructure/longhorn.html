@@ -7,7 +7,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   
-  <title>Host node provisioning &mdash; LSST Sandbox  documentation</title>
+  <title>Longhorn &mdash; LSST Sandbox  documentation</title>
   
 
   
@@ -41,8 +41,8 @@
     
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Kubernetes (k3s)" href="kubernetes.html" />
-    <link rel="prev" title="Documentation system" href="documentation.html" /> 
+    <link rel="next" title="Vault" href="vault.html" />
+    <link rel="prev" title="Kubernetes (k3s)" href="kubernetes.html" /> 
 </head>
 
 <body class="wy-body-for-nav">
@@ -96,9 +96,9 @@
 <ul class="current">
 <li class="toctree-l1"><a class="reference internal" href="argocd.html">ArgoCD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="documentation.html">Documentation system</a></li>
-<li class="toctree-l1 current"><a class="current reference internal" href="#">Host node provisioning</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes (k3s)</a></li>
-<li class="toctree-l1"><a class="reference internal" href="longhorn.html">Longhorn</a></li>
+<li class="toctree-l1 current"><a class="current reference internal" href="#">Longhorn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
 <li class="toctree-l1"><a class="reference internal" href="vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
 </ul>
@@ -149,13 +149,13 @@
     
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
         
-      <li>Host node provisioning</li>
+      <li>Longhorn</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
           
-            <a href="../_sources/infrastructure/infrastructure.md.txt" rel="nofollow"> View page source</a>
+            <a href="../_sources/infrastructure/longhorn.md.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -168,15 +168,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="host-node-provisioning">
-<h1>Host node provisioning<a class="headerlink" href="#host-node-provisioning" title="Permalink to this headline">¶</a></h1>
-<p>Using Radiant project account <code class="docutils literal notranslate"><span class="pre">bbdr</span></code>, I followed the <a class="reference external" href="https://wiki.ncsa.illinois.edu/display/ICI/Creating+new+instances#Creatingnewinstances-SecurityGroups">Radiant instance creation guide</a> to create a m1.large (4vCPU/8GB) VM.</p>
-<p>Installed <a class="reference external" href="https://k3s.io/">k3s</a> and updated system packages (apt upgrade).</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>manninga@darkmatter$ kubectl get node
-NAME           STATUS   ROLES                  AGE   VERSION
-lsst-sandbox   Ready    control-plane,master   21m   v1.20.4+k3s1
+  <div class="section" id="longhorn">
+<h1>Longhorn<a class="headerlink" href="#longhorn" title="Permalink to this headline">¶</a></h1>
+<p><a class="reference external" href="https://longhorn.io/">Longhorn</a> is cloud native distributed block storage for Kubernetes, developed by Rancher. It provisions PVCs using locally-mounted storage available to the worker nodes, supporting replication for high availability.</p>
+<p>The system is deployed via the official Helm chart as an ArgoCD app. It requires manually creating the <code class="docutils literal notranslate"><span class="pre">longhorn-system</span></code> namespace so that the app can deploy.</p>
+<p>The Longhorn interface can be accessed via <code class="docutils literal notranslate"><span class="pre">kubectl</span> <span class="pre">port-forward</span></code> (replace <code class="docutils literal notranslate"><span class="pre">8080</span></code> with the desired local port):</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>manninga@darkmatter$ kubectl port-forward -n longhorn-system svc/longhorn-frontend 8080:80
+Forwarding from 127.0.0.1:8080 -&gt; 8000
+Forwarding from [::1]:8080 -&gt; 8000
 </pre></div>
 </div>
+<p>Open a browser to http://127.0.0.1:8080/#/dashboard to view the Longhorn admin dashboard.</p>
 </div>
 
 
@@ -185,8 +187,8 @@ lsst-sandbox   Ready    control-plane,master   21m   v1.20.4+k3s1
           </div>
           <footer>
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="kubernetes.html" class="btn btn-neutral float-right" title="Kubernetes (k3s)" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="documentation.html" class="btn btn-neutral float-left" title="Documentation system" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="vault.html" class="btn btn-neutral float-right" title="Vault" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+        <a href="kubernetes.html" class="btn btn-neutral float-left" title="Kubernetes (k3s)" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>

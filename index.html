@@ -97,6 +97,7 @@
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/documentation.html">Documentation system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/kubernetes.html">Kubernetes (k3s)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/longhorn.html">Longhorn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/vault.html">Vault</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
 </ul>
@@ -183,13 +184,14 @@
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/documentation.html">Documentation system</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/kubernetes.html">Kubernetes (k3s)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="infrastructure/longhorn.html">Longhorn</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/vault.html">Vault</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
 </ul>
 </div>
 <div class="section" id="administration-and-support">
 <h2>Administration and Support<a class="headerlink" href="#administration-and-support" title="Permalink to this headline">¶</a></h2>
-<p>The sysadmin of the LSST Sandbox is <a class="reference external" href="https://lsstc.slack.com/team/UPU070294">T. Andrew Manning</a>.</p>
+<p>The sysadmin of the LSST Sandbox is <a class="reference external" href="https://lsstc.slack.com/team/UPU070294">T. Andrew Manning</a> (<a class="reference external" href="https://matrix.to/#/&#64;manning-ncsa:matrix.org">&#64;manning-ncsa:matrix.org</a>).</p>
 <p>The Kubernetes cluster is <a class="reference external" href="https://radiant.ncsa.illinois.edu/dashboard/project/instances/419c229f-0029-44af-bd1b-309c4254854b/">a VM instance</a> hosted by the <a class="reference external" href="https://wiki.ncsa.illinois.edu/pages/viewpage.action?spaceKey=ICI&amp;title=Radiant">NCSA Radiant system</a> in the <code class="docutils literal notranslate"><span class="pre">bbdr</span></code> project (ID <code class="docutils literal notranslate"><span class="pre">dedb408d1b0a4aa0acdbf08180e4069e</span></code>).</p>
 <p>The keys required to unseal the Vault are stored as a Kubernetes Secret (<code class="docutils literal notranslate"><span class="pre">/api/v1/namespaces/vault/secrets/vault-keys</span></code>). Anyone with root access to the Radiant VM host OS can copy the <code class="docutils literal notranslate"><span class="pre">/etc/rancher/k3s/k3s.yaml</span></code> kubeconfig and control the Kubernetes cluster with admin privileges.</p>
 </div>
