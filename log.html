@@ -170,6 +170,8 @@
 <div class="section" id="id1">
 <h2>2021/07/14<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
 <p>Upgraded to a newer NFS provisioner client.</p>
+<p>Installed Longhorn. Set default replicas to 1 by directly editing the StorageClass via kubectl.</p>
+<p>Migrated the Vault to longhorn instead of nfs-condo to avoid crashes due to Radiant’s NFS-based Condo storage system instabilities. There were only a handful of secrets so these were recreated manually instead of using the more complex process of mounting the longhorn and nfs-condo PVCs in the same container and copying over the original Vault data files.</p>
 </div>
 <div class="section" id="id2">
 <h2>2020/03/08<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>

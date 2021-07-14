@@ -13,10 +13,10 @@ Success! Enabled the kv secrets engine at: kv/
 Create a policy allowing VSO to access the secrets at that path:
 ```
 / $ cat <<EOF | vault policy write vault-secrets-operator -
-> path "kv/*" {
->   capabilities = ["read"]
-> }
-> EOF
+path "kv/*" {
+  capabilities = ["read"]
+}
+EOF
 Success! Uploaded policy: vault-secrets-operator
 ```
 
@@ -59,6 +59,7 @@ To allow the users authenticating via GitHub to manage their secrets in a way th
 path "kv/*" {
   capabilities = ["create", "read", "update", "delete", "list"]
 }
+EOF
 ```
 
-In the auth methods page (`/ui/vault/settings/auth/configure/github/configuration`), modify the `github` entry to apply this policy. Add the entry `lsst-dm` to the section "Generated Token's Policies".
+Add GitHub as an auth method (`/ui/vault/access`). In the auth methods page (`/ui/vault/settings/auth/configure/github/configuration`), list `lsst-dm` as the required "Organization" and add `lsst-dm` to the list of policies in "Generated Token's Policies".

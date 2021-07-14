@@ -6,6 +6,11 @@ Log
 
 Upgraded to a newer NFS provisioner client.
 
+Installed Longhorn. Set default replicas to 1 by directly editing the StorageClass via kubectl.
+
+Migrated the Vault to longhorn instead of nfs-condo to avoid crashes due to Radiant's NFS-based Condo storage system instabilities. There were only a handful of secrets so these were recreated manually instead of using the more complex process of mounting the longhorn and nfs-condo PVCs in the same container and copying over the original Vault data files.
+
+
 2020/03/08
 ---------------------------
 
