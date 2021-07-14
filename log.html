@@ -85,12 +85,12 @@
               
             
             
-              <p class="caption"><span class="caption-text">Apps</span></p>
+              <p class="caption" role="heading"><span class="caption-text">Apps</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="apps/landing-page.html">Landing Page</a></li>
 <li class="toctree-l1"><a class="reference internal" href="apps/vault.html">Vault</a></li>
 </ul>
-<p class="caption"><span class="caption-text">Infrastructure</span></p>
+<p class="caption" role="heading"><span class="caption-text">Infrastructure</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/argocd.html">ArgoCD</a></li>
 <li class="toctree-l1"><a class="reference internal" href="infrastructure/documentation.html">Documentation system</a></li>
@@ -168,16 +168,20 @@
   <div class="section" id="log">
 <h1>Log<a class="headerlink" href="#log" title="Permalink to this headline">¶</a></h1>
 <div class="section" id="id1">
-<h2>2020/03/08<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<h2>2021/07/14<a class="headerlink" href="#id1" title="Permalink to this headline">¶</a></h2>
+<p>Upgraded to a newer NFS provisioner client.</p>
+</div>
+<div class="section" id="id2">
+<h2>2020/03/08<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
 <p>Deployed ArgoCD (https://lsst-sandbox.ncsa.illinois.edu/argo-cd) and converted the landing page and pipe-analysis-navigator deployments to ArgoCD apps, following the “app of apps” pattern by creating a parent <code class="docutils literal notranslate"><span class="pre">root</span></code> app.</p>
 <p>Enabled GitHub authentication for the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> organization following <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">this documentation</a>. The <a class="reference external" href="https://github.com/settings/developers">GitHub Oauth application definition</a> was created through my <code class="docutils literal notranslate"><span class="pre">manning-ncsa</span></code> GitHub account. Users logging in via GitHub do not see the applications deployed under the <code class="docutils literal notranslate"><span class="pre">admin</span></code> account.</p>
 </div>
-<div class="section" id="id2">
-<h2>2020/03/05<a class="headerlink" href="#id2" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id3">
+<h2>2020/03/05<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
 <p>Saved a VM snapshot as <code class="docutils literal notranslate"><span class="pre">k3s-ubuntu-20.04-20210305</span></code>.</p>
 </div>
-<div class="section" id="id3">
-<h2>2020/03/04<a class="headerlink" href="#id3" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="id4">
+<h2>2020/03/04<a class="headerlink" href="#id4" title="Permalink to this headline">¶</a></h2>
 <p>Radiant VM creation and k3s installation.</p>
 <p>Emailed <code class="docutils literal notranslate"><span class="pre">help+neteng&#64;ncsa.illinois.edu</span></code> to obtain a dedicated domain name and a DNS record pointing to <code class="docutils literal notranslate"><span class="pre">lsst-sandbox.ncsa.illinois.edu</span></code>.</p>
 </div>
