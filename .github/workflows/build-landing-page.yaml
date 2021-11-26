@@ -3,7 +3,7 @@ name: landing page
 on:
   push:
     branches:
-      - 'master'
+      - 'main'
     paths:
     - 'src/landing-page/**'
 
@@ -42,7 +42,7 @@ jobs:
           context: src/landing-page
           push: true
           tags: lsstdm/landing-page:latest
-          # From https://github.com/docker/build-push-action/blob/master/docs/advanced/cache.md#github-cache
+          # From https://github.com/docker/build-push-action/blob/main/docs/advanced/cache.md#github-cache
           cache-from: type=local,src=/tmp/.buildx-cache
           cache-to: type=local,dest=/tmp/.buildx-cache-new
       -
