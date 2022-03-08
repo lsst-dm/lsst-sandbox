@@ -13,7 +13,7 @@ spec:
     path: apps/root
     repoURL: https://github.com/lsst-dm/lsst-sandbox.git
     targetRevision: master
-  syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+  # syncPolicy:
+  #   automated:
+  #     prune: true
+  #     selfHeal: true
