@@ -16,3 +16,21 @@ spec:
     - lsst-dm:Data Management
     policies:
     - p, proj:lsst-dm:lsst-dm-admin, applications, *, lsst-dm/*, allow
+---
+apiVersion: argoproj.io/v1alpha1
+kind: AppProject
+metadata:
+  name: blast
+spec:
+  destinations:
+  - namespace: 'blast-*'
+    server: '*'
+  sourceRepos:
+  - https://github.com/manning-ncsa/*
+  - https://gitlab.com/manning-ncsa/*
+  roles:
+  - name: blast-admin
+    groups:
+    - ncsa-blast
+    policies:
+    - p, proj:ncsa-blast:ncsa-blast-admin, applications, *, ncsa-blast/*, allow
