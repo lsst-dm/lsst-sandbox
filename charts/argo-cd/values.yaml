@@ -54,14 +54,14 @@ argo-cd:
       url: https://lsst-sandbox.ncsa.illinois.edu/argo-cd
       dex.config: |
         connectors:
-          - type: github
-            id: github
-            name: GitHub
-            config:
-              clientID: $dex.github.clientId
-              clientSecret: $dex.github.clientSecret
-              orgs:
-              - name: lsst-dm
+          # - type: github
+          #   id: github
+          #   name: GitHub
+          #   config:
+          #     clientID: $dex.github.clientId
+          #     clientSecret: $dex.github.clientSecret
+          #     orgs:
+          #     - name: lsst-dm
           - type: gitlab
             id: gitlab
             name: GitLab
@@ -72,4 +72,11 @@ argo-cd:
               groups:
               # https://gitlab.com/ncsa-blast
               - "ncsa-blast"
+  configs:
+    ## Do not generate the default argocd-secret secret. Instead,
+    ## manually create it following the guidelines at
+    ## https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
+    secret:
+        createSecret: false
+
 
