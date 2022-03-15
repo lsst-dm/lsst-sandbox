@@ -10,7 +10,7 @@ spec:
   source:
     path: apps/root
     repoURL: https://github.com/lsst-dm/lsst-sandbox.git
-    targetRevision: master
+    targetRevision: main
   # syncPolicy:
   #   automated:
   #     prune: true
