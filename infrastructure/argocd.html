@@ -84,20 +84,20 @@
 <h1>ArgoCD<a class="headerlink" href="#argocd" title="Permalink to this headline"></a></h1>
 <section id="foundation">
 <h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline"></a></h2>
-<p>ArgoCD (https://lsst-sandbox.ncsa.illinois.edu/argo-cd) is installed for both Kubernetes cluster admin deployments of global services and components and for individual developers to use for app development. The ArgoCD applications defined by the admin in the <code class="docutils literal notranslate"><span class="pre">default</span></code> project follow the “<a class="reference external" href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#app-of-apps">app of apps</a>” pattern by creating a parent <code class="docutils literal notranslate"><span class="pre">root</span></code> app that includes separately defined apps in a hierarchical way.</p>
-<p>Following <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">this documentation</a>, GitHub has been added as an identity provider for authentication to the ArgoCD sevice. The <a class="reference external" href="https://github.com/settings/developers">GitHub Oauth application definition</a> was created through the admin’s personal GitHub account.</p>
+<p><a class="reference external" href="https://lsst-sandbox.ncsa.illinois.edu/argo-cd">ArgoCD</a> is installed for both Kubernetes cluster admin deployments of global services and components and for individual developers to use for app development. The ArgoCD applications defined by the admin in the <code class="docutils literal notranslate"><span class="pre">default</span></code> project follow the “<a class="reference external" href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#app-of-apps">app of apps</a>” pattern by creating a parent <code class="docutils literal notranslate"><span class="pre">root</span></code> app that includes separately defined apps in a hierarchical way.</p>
+<p>Following <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">this documentation</a>, GitHub/GitLab has been added as an identity provider for authentication to the ArgoCD service.</p>
 </section>
 <section id="app-development">
 <h2>App development<a class="headerlink" href="#app-development" title="Permalink to this headline"></a></h2>
-<p>Members of the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> GitHub organization can use the “Log in via GitHub” button. They have shared access to the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> ArgoCD application project, allowing them to create applications from independent GitHub repositories. The application definitions <strong>must</strong>:</p>
+<p>Members of select GitHub/GitLab organizations/groups can use the “Log in via GitHub/GitLab” button. They have shared access to the ArgoCD application project associated with that org/group, allowing them to create applications from independent git repositories. The application definitions <strong>must</strong>:</p>
 <ul class="simple">
-<li><p>Reside in a namespace with the prefix <code class="docutils literal notranslate"><span class="pre">lsst-dm-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">lsst-dm-my-app</span></code>)</p></li>
-<li><p>Reference a git repository within the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> organization namespace on GitHub (i.e. <code class="docutils literal notranslate"><span class="pre">https://github.com/lsst-dm/*</span></code>)</p></li>
+<li><p>Reside in a namespace with the prefix of the project <code class="docutils literal notranslate"><span class="pre">my-project-*</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">my-project-my-app</span></code>)</p></li>
+<li><p>Reference a git repository specially allowed by the ArgoCD application project configuration.</p></li>
 </ul>
 </section>
 <section id="command-line-access">
 <h2>Command line access<a class="headerlink" href="#command-line-access" title="Permalink to this headline"></a></h2>
-<p>To use the local <a class="reference external" href="https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli">ArgoCD CLI</a>, use the more complex login command, which will open a browser window to complete the GitHub authentication:</p>
+<p>To use the local <a class="reference external" href="https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli">ArgoCD CLI</a>, use the more complex login command, which will open a browser window to complete the GitHub/GitLab authentication:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ argocd login lsst-sandbox.ncsa.illinois.edu --grpc-web-root-path /argo-cd --sso
 
 Opening browser for authentication
