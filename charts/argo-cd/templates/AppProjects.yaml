@@ -1,18 +1,38 @@
+# ---
+# apiVersion: argoproj.io/v1alpha1
+# kind: AppProject
+# metadata:
+#   name: lsst-dm
+# spec:
+#   destinations:
+#   - namespace: 'lsst-dm-*'
+#     server: '*'
+#   sourceRepos:
+#   - https://github.com/lsst-dm/*  
+#   - https://github.com/argoproj/*  
+#   roles:
+#   - name: lsst-dm-admin
+#     groups:
+#     - lsst-dm:Data Management
+#     policies:
+#     - p, proj:lsst-dm:lsst-dm-admin, applications, *, lsst-dm/*, allow
 ---
 apiVersion: argoproj.io/v1alpha1
 kind: AppProject
 metadata:
-  name: lsst-dm
+  name: blast
 spec:
   destinations:
-  - namespace: 'lsst-dm-*'
+  - namespace: 'blast-*'
     server: '*'
+  clusterResourceWhitelist:
+  - group: '*'
+    kind: '*'
   sourceRepos:
-  - https://github.com/lsst-dm/*  
-  - https://github.com/argoproj/*  
+  - https://gitlab.com/ncsa-blast/*
   roles:
-  - name: lsst-dm-admin
+  - name: admin
     groups:
-    - lsst-dm:Data Management
+    - ncsa-blast
     policies:
-    - p, proj:lsst-dm:lsst-dm-admin, applications, *, lsst-dm/*, allow
+    - p, proj:blast:admin, applications, *, blast/*, allow

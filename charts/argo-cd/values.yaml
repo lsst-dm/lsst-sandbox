@@ -1,10 +1,5 @@
 hostname: lsst-sandbox.ncsa.illinois.edu
-basePath: argocd
 argo-cd:
-  installCRDs: false
-  global:
-    image:
-      tag: v1.8.1
   server:
     extraArgs:
       # Since ArgoCD web GUI will secured behind `kubectl port-forward` 
@@ -35,6 +30,8 @@ argo-cd:
           url: https://charts.longhorn.io
         - type: git
           url: https://github.com/lsst-dm/lsst-sandbox.git
+        - type: git
+          url: https://gitlab.com/ncsa-blast/kubernetes.git
       # Following the guides at 
       #   https://argoproj.github.io/argo-cd/user-guide/diffing/#system-level-configuration
       # and 
@@ -44,6 +41,11 @@ argo-cd:
           ignoreDifferences: |
             jsonPointers:
             - /webhooks/0/clientConfig/caBundle
+        bitnami.com/SealedSecret:
+            health.lua: |
+              hs = {}
+              hs.status = "Healthy"
+              return hs
         networking.k8s.io/Ingress:
             health.lua: |
               hs = {}
@@ -52,11 +54,29 @@ argo-cd:
       url: https://lsst-sandbox.ncsa.illinois.edu/argo-cd
       dex.config: |
         connectors:
-          - type: github
-            id: github
-            name: GitHub
+          # - type: github
+          #   id: github
+          #   name: GitHub
+          #   config:
+          #     clientID: $dex.github.clientId
+          #     clientSecret: $dex.github.clientSecret
+          #     orgs:
+          #     - name: lsst-dm
+          - type: gitlab
+            id: gitlab
+            name: GitLab
             config:
-              clientID: $dex.github.clientId
-              clientSecret: $dex.github.clientSecret
-              orgs:
-              - name: lsst-dm
+              # Set these values in `argocd-secret` Secret
+              clientID: $dex.gitlab.clientId
+              clientSecret: $dex.gitlab.clientSecret
+              groups:
+              # https://gitlab.com/ncsa-blast
+              - "ncsa-blast"
+  configs:
+    ## Do not generate the default argocd-secret secret. Instead,
+    ## manually create it following the guidelines at
+    ## https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/
+    secret:
+        createSecret: false
+
+

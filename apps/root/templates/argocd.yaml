@@ -1,17 +1,16 @@
 apiVersion: argoproj.io/v1alpha1
 kind: Application
 metadata:
-  name: landing-page
+  name: argo-cd
 spec:
   destination:
     server: https://kubernetes.default.svc
     namespace: default
   project: default
   source:
-    path: charts/landing-page
+    path: charts/argo-cd
     repoURL: https://github.com/lsst-dm/lsst-sandbox.git
-    targetRevision: HEAD
+    targetRevision: main
   syncPolicy:
-    automated:
-      prune: true
-      selfHeal: true
+    syncOptions:
+      - CreateNamespace=true

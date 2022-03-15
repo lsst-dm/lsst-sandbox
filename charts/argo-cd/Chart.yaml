@@ -3,10 +3,11 @@
 # and is based on the configuration files in the associated git repo
 #   https://github.com/arthurk/argocd-example-install/
 apiVersion: v2
+appVersion: "3.17.x"
 name: argo-cd
 version: 1.0.0
 icon: https://argoproj.github.io/argo-cd/assets/logo.png
 dependencies:
   - name: argo-cd
-    version: 2.11.0
+    version: 3.17.x
     repository: https://argoproj.github.io/argo-helm
