@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: traefik
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: traefik
+  project: default
+  source:
+    path: charts/traefik
+    repoURL: https://github.com/lsst-dm/lsst-sandbox.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
