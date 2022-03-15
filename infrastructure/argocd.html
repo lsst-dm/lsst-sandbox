@@ -1,73 +1,34 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>ArgoCD &mdash; LSST Sandbox  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>ArgoCD &mdash; Kubernetes Sandbox  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Documentation system" href="documentation.html" />
-    <link rel="prev" title="Vault" href="../apps/vault.html" /> 
+    <link rel="prev" title="Landing Page" href="../apps/landing-page.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LSST Sandbox
-          
-
-          
+            <a href="../index.html" class="icon icon-home"> Kubernetes Sandbox
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,22 +36,10 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Apps</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../apps/landing-page.html">Landing Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps/vault.html">Vault</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Infrastructure</span></p>
 <ul class="current">
@@ -104,92 +53,50 @@
 <li class="toctree-l1"><a class="reference internal" href="infrastructure.html">Host node provisioning</a></li>
 <li class="toctree-l1"><a class="reference internal" href="kubernetes.html">Kubernetes (k3s)</a></li>
 <li class="toctree-l1"><a class="reference internal" href="longhorn.html">Longhorn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sealed-secrets.html">Sealed Secrets</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LSST Sandbox</a>
-        
+          <a href="../index.html">Kubernetes Sandbox</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>ArgoCD</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/infrastructure/argocd.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="argocd">
-<h1>ArgoCD<a class="headerlink" href="#argocd" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="foundation">
-<h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline">¶</a></h2>
+             
+  <section id="argocd">
+<h1>ArgoCD<a class="headerlink" href="#argocd" title="Permalink to this headline"></a></h1>
+<section id="foundation">
+<h2>Foundation<a class="headerlink" href="#foundation" title="Permalink to this headline"></a></h2>
 <p>ArgoCD (https://lsst-sandbox.ncsa.illinois.edu/argo-cd) is installed for both Kubernetes cluster admin deployments of global services and components and for individual developers to use for app development. The ArgoCD applications defined by the admin in the <code class="docutils literal notranslate"><span class="pre">default</span></code> project follow the “<a class="reference external" href="https://argo-cd.readthedocs.io/en/stable/operator-manual/declarative-setup/#app-of-apps">app of apps</a>” pattern by creating a parent <code class="docutils literal notranslate"><span class="pre">root</span></code> app that includes separately defined apps in a hierarchical way.</p>
 <p>Following <a class="reference external" href="https://argoproj.github.io/argo-cd/operator-manual/user-management/#dex">this documentation</a>, GitHub has been added as an identity provider for authentication to the ArgoCD sevice. The <a class="reference external" href="https://github.com/settings/developers">GitHub Oauth application definition</a> was created through the admin’s personal GitHub account.</p>
-</div>
-<div class="section" id="app-development">
-<h2>App development<a class="headerlink" href="#app-development" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="app-development">
+<h2>App development<a class="headerlink" href="#app-development" title="Permalink to this headline"></a></h2>
 <p>Members of the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> GitHub organization can use the “Log in via GitHub” button. They have shared access to the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> ArgoCD application project, allowing them to create applications from independent GitHub repositories. The application definitions <strong>must</strong>:</p>
 <ul class="simple">
 <li><p>Reside in a namespace with the prefix <code class="docutils literal notranslate"><span class="pre">lsst-dm-</span></code> (e.g. <code class="docutils literal notranslate"><span class="pre">lsst-dm-my-app</span></code>)</p></li>
 <li><p>Reference a git repository within the <code class="docutils literal notranslate"><span class="pre">lsst-dm</span></code> organization namespace on GitHub (i.e. <code class="docutils literal notranslate"><span class="pre">https://github.com/lsst-dm/*</span></code>)</p></li>
 </ul>
-</div>
-<div class="section" id="command-line-access">
-<h2>Command line access<a class="headerlink" href="#command-line-access" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="command-line-access">
+<h2>Command line access<a class="headerlink" href="#command-line-access" title="Permalink to this headline"></a></h2>
 <p>To use the local <a class="reference external" href="https://argoproj.github.io/argo-cd/getting_started/#2-download-argo-cd-cli">ArgoCD CLI</a>, use the more complex login command, which will open a browser window to complete the GitHub authentication:</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span>$ argocd login lsst-sandbox.ncsa.illinois.edu --grpc-web-root-path /argo-cd --sso
 
@@ -200,55 +107,38 @@ Authentication successful
 Context &#39;lsst-sandbox.ncsa.illinois.edu:443/argo-cd&#39; updated
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
+        <a href="../apps/landing-page.html" class="btn btn-neutral float-left" title="Landing Page" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
         <a href="documentation.html" class="btn btn-neutral float-right" title="Documentation system" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
-        <a href="../apps/vault.html" class="btn btn-neutral float-left" title="Vault" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021.
-
-    </p>
+    <p>&#169; Copyright 2022.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>

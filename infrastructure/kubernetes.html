@@ -1,73 +1,34 @@
-
-
 <!DOCTYPE html>
 <html class="writer-html5" lang="en" >
 <head>
-  <meta charset="utf-8" />
-  
+  <meta charset="utf-8" /><meta name="generator" content="Docutils 0.17.1: http://docutils.sourceforge.net/" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  
-  <title>Kubernetes (k3s) &mdash; LSST Sandbox  documentation</title>
-  
-
-  
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
-  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
-
-  
-  
-
-  
-  
-
-  
-
-  
+  <title>Kubernetes (k3s) &mdash; Kubernetes Sandbox  documentation</title>
+      <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+      <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
   <!--[if lt IE 9]>
     <script src="../_static/js/html5shiv.min.js"></script>
   <![endif]-->
   
-    
-      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
         <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
         <script src="../_static/jquery.js"></script>
         <script src="../_static/underscore.js"></script>
         <script src="../_static/doctools.js"></script>
-    
-    <script type="text/javascript" src="../_static/js/theme.js"></script>
-
-    
+    <script src="../_static/js/theme.js"></script>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
     <link rel="next" title="Longhorn" href="longhorn.html" />
     <link rel="prev" title="Host node provisioning" href="infrastructure.html" /> 
 </head>
 
-<body class="wy-body-for-nav">
-
-   
+<body class="wy-body-for-nav"> 
   <div class="wy-grid-for-nav">
-    
     <nav data-toggle="wy-nav-shift" class="wy-nav-side">
       <div class="wy-side-scroll">
         <div class="wy-side-nav-search" >
-          
-
-          
-            <a href="../index.html" class="icon icon-home"> LSST Sandbox
-          
-
-          
+            <a href="../index.html" class="icon icon-home"> Kubernetes Sandbox
           </a>
-
-          
-            
-            
-          
-
-          
 <div role="search">
   <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
     <input type="text" name="q" placeholder="Search docs" />
@@ -75,22 +36,10 @@
     <input type="hidden" name="area" value="default" />
   </form>
 </div>
-
-          
-        </div>
-
-        
-        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
-          
-            
-            
-              
-            
-            
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <p class="caption" role="heading"><span class="caption-text">Apps</span></p>
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="../apps/landing-page.html">Landing Page</a></li>
-<li class="toctree-l1"><a class="reference internal" href="../apps/vault.html">Vault</a></li>
 </ul>
 <p class="caption" role="heading"><span class="caption-text">Infrastructure</span></p>
 <ul class="current">
@@ -104,174 +53,115 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="longhorn.html">Longhorn</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vault.html">Vault</a></li>
-<li class="toctree-l1"><a class="reference internal" href="vault-secrets-operator.html">Vault Secrets Operator (VSO)</a></li>
+<li class="toctree-l1"><a class="reference internal" href="sealed-secrets.html">Sealed Secrets</a></li>
 </ul>
 
-            
-          
         </div>
-        
       </div>
     </nav>
 
-    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
-
-      
-      <nav class="wy-nav-top" aria-label="top navigation">
-        
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
           <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
-          <a href="../index.html">LSST Sandbox</a>
-        
+          <a href="../index.html">Kubernetes Sandbox</a>
       </nav>
 
-
       <div class="wy-nav-content">
-        
         <div class="rst-content">
-        
-          
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-<div role="navigation" aria-label="breadcrumbs navigation">
-
+          <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
-    
       <li><a href="../index.html" class="icon icon-home"></a> &raquo;</li>
-        
       <li>Kubernetes (k3s)</li>
-    
-    
       <li class="wy-breadcrumbs-aside">
-        
-          
             <a href="../_sources/infrastructure/kubernetes.md.txt" rel="nofollow"> View page source</a>
-          
-        
       </li>
-    
   </ul>
-
-  
   <hr/>
 </div>
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
-            
-  <div class="section" id="kubernetes-k3s">
-<h1>Kubernetes (k3s)<a class="headerlink" href="#kubernetes-k3s" title="Permalink to this headline">¶</a></h1>
-<div class="section" id="rancher">
-<h2>Rancher<a class="headerlink" href="#rancher" title="Permalink to this headline">¶</a></h2>
-<p>Gave the cluster to Rancher control using the <a class="reference external" href="https://gonzo-rancher.ncsa.illinois.edu">NCSA Rancher instance</a>, and copied the kubeconfig generated by Rancher to local file <code class="docutils literal notranslate"><span class="pre">$HOME/.kube/lsst-sandbox.kubeconfig</span></code>.</p>
+             
+  <section id="kubernetes-k3s">
+<h1>Kubernetes (k3s)<a class="headerlink" href="#kubernetes-k3s" title="Permalink to this headline"></a></h1>
+<section id="rancher">
+<h2>Rancher<a class="headerlink" href="#rancher" title="Permalink to this headline"></a></h2>
+<p>The <a class="reference external" href="https://gonzo-rancher.ncsa.illinois.edu">NCSA Rancher instance</a> was given control of the cluster. People who have been granted access to the cluster <a class="reference external" href="https://gonzo-rancher.ncsa.illinois.edu/dashboard/c/c-tlvqg/manager/provisioning.cattle.io.cluster/fleet-default/c-tlvqg?mode=edit">via the Rancher cluster settings</a> can download the kubeconfig.</p>
 <p>Rancher generates a kubeconfig separate from the one generated by k3s, because it acts as a proxy between the client and k8s cluster. One of the benefits of this configuration is that you do not need to use the NCSA VPN in order to issue <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> commands. The <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> commands referenced in this documentation assume that this kubeconfig has been save locally to somewhere like <code class="docutils literal notranslate"><span class="pre">$HOME/.kube/lsst-sandbox.kubeconfig</span></code> and that prior to <code class="docutils literal notranslate"><span class="pre">kubectl</span></code> command you run <code class="docutils literal notranslate"><span class="pre">export</span> <span class="pre">KUBECONFIG=&quot;$HOME/.kube/lsst-sandbox.kubeconfig&quot;</span></code>.</p>
-</div>
-<div class="section" id="persistent-volumes">
-<h2>Persistent Volumes<a class="headerlink" href="#persistent-volumes" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="persistent-volumes">
+<h2>Persistent Volumes<a class="headerlink" href="#persistent-volumes" title="Permalink to this headline"></a></h2>
 <p>Install NFS mounting support on the host:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ubuntu@lsst-sandbox:~$ sudo apt-get install nfs-common
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@lsst-sandbox:~$ sudo apt-get install nfs-common
 </pre></div>
 </div>
 <p>Deploy the NFS client provisioner configured to use the NCSA Condo storage system for PVs:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">helm</span> <span class="n">repo</span> <span class="n">add</span> <span class="n">stable</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">charts</span><span class="o">.</span><span class="n">helm</span><span class="o">.</span><span class="n">sh</span><span class="o">/</span><span class="n">stable</span><span class="o">/</span>
-<span class="n">helm</span> <span class="n">repo</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="n">charts</span><span class="o">/</span><span class="n">nfs</span><span class="o">-</span><span class="n">condo</span><span class="o">/</span>
-<span class="n">helm</span> <span class="n">dep</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="o">../..</span>
-<span class="n">helm</span> <span class="n">upgrade</span> <span class="o">--</span><span class="n">install</span> <span class="o">--</span><span class="n">create</span><span class="o">-</span><span class="n">namespace</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">nfs</span><span class="o">-</span><span class="n">condo</span> <span class="n">nfs</span><span class="o">-</span><span class="n">condo</span> <span class="n">charts</span><span class="o">/</span><span class="n">nfs</span><span class="o">-</span><span class="n">condo</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm repo add stable https://charts.helm.sh/stable/
+helm repo update
+<span class="nb">cd</span> charts/nfs-condo/
+helm dep update
+<span class="nb">cd</span> ../..
+helm upgrade --install --create-namespace --namespace nfs-condo nfs-condo charts/nfs-condo
 </pre></div>
 </div>
 <p><strong>WARNING</strong>:
 There is a deprecation in Kubernetes v1.20 that prevents the NFS client provisioner from working due to a known issue. Adding the <code class="docutils literal notranslate"><span class="pre">feature-gates</span></code> flag to the apiserver allows it to function; however this is not a solution but a workaround. See the <strong>Networking</strong> section for details.</p>
-</div>
-<div class="section" id="traefik-and-networking">
-<h2>Traefik and Networking<a class="headerlink" href="#traefik-and-networking" title="Permalink to this headline">¶</a></h2>
+</section>
+<section id="traefik-and-networking">
+<h2>Traefik and Networking<a class="headerlink" href="#traefik-and-networking" title="Permalink to this headline"></a></h2>
 <p>Email <code class="docutils literal notranslate"><span class="pre">help+neteng&#64;ncsa.illinois.edu</span></code> to request a dedicated domain name and a DNS record pointing to <code class="docutils literal notranslate"><span class="pre">lsst-sandbox.ncsa.illinois.edu</span></code>.</p>
 <p>After k3s is installed and running, modify <code class="docutils literal notranslate"><span class="pre">/etc/systemd/system/k3s.service</span></code> to run k3s without deploying Traefik. (Alternatively, initially you can install k3s with the option that disables Traefik.)</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="o">...</span>
-<span class="n">ExecStart</span><span class="o">=/</span><span class="n">usr</span><span class="o">/</span><span class="n">local</span><span class="o">/</span><span class="nb">bin</span><span class="o">/</span><span class="n">k3s</span> \
-  <span class="n">server</span> \
-  <span class="o">--</span><span class="n">disable</span> <span class="n">traefik</span> \
-  <span class="o">--</span><span class="n">kube</span><span class="o">-</span><span class="n">apiserver</span><span class="o">-</span><span class="n">arg</span> <span class="n">feature</span><span class="o">-</span><span class="n">gates</span><span class="o">=</span><span class="n">RemoveSelfLink</span><span class="o">=</span><span class="n">false</span> \
+<div class="highlight-plain notranslate"><div class="highlight"><pre><span></span>...
+ExecStart=/usr/local/bin/k3s \
+  server \
+  --disable traefik \
+  --kube-apiserver-arg feature-gates=RemoveSelfLink=false \
 </pre></div>
 </div>
 <p>Then apply and reload the k3s service:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>ubuntu@lsst-sandbox:~$ sudo systemctl daemon-reload
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>ubuntu@lsst-sandbox:~$ sudo systemctl daemon-reload
 ubuntu@lsst-sandbox:~$ sudo service k3s restart
 </pre></div>
 </div>
 <p>Deploy the Traefik Helm chart:</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">helm</span> <span class="n">repo</span> <span class="n">add</span> <span class="n">traefik</span> <span class="n">https</span><span class="p">:</span><span class="o">//</span><span class="n">helm</span><span class="o">.</span><span class="n">traefik</span><span class="o">.</span><span class="n">io</span><span class="o">/</span><span class="n">traefik</span>
-<span class="n">helm</span> <span class="n">repo</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="n">charts</span><span class="o">/</span><span class="n">traefik</span><span class="o">/</span>
-<span class="n">helm</span> <span class="n">dep</span> <span class="n">update</span>
-<span class="n">cd</span> <span class="o">../..</span>
-<span class="n">helm</span> <span class="n">upgrade</span> <span class="o">--</span><span class="n">install</span> <span class="o">--</span><span class="n">create</span><span class="o">-</span><span class="n">namespace</span> <span class="o">--</span><span class="n">namespace</span> <span class="n">traefik</span> <span class="n">traefik</span> <span class="n">charts</span><span class="o">/</span><span class="n">traefik</span>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>helm repo add traefik https://helm.traefik.io/traefik
+helm repo update
+<span class="nb">cd</span> charts/traefik/
+helm dep update
+<span class="nb">cd</span> ../..
+helm upgrade --install --create-namespace --namespace traefik traefik charts/traefik
 </pre></div>
 </div>
-</div>
-</div>
+</section>
+</section>
 
 
            </div>
-           
           </div>
-          <footer>
-    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
-        <a href="longhorn.html" class="btn btn-neutral float-right" title="Longhorn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
+          <footer><div class="rst-footer-buttons" role="navigation" aria-label="Footer">
         <a href="infrastructure.html" class="btn btn-neutral float-left" title="Host node provisioning" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left" aria-hidden="true"></span> Previous</a>
+        <a href="longhorn.html" class="btn btn-neutral float-right" title="Longhorn" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right" aria-hidden="true"></span></a>
     </div>
 
   <hr/>
 
   <div role="contentinfo">
-    <p>
-        &#169; Copyright 2021.
-
-    </p>
+    <p>&#169; Copyright 2022.</p>
   </div>
-    
-    
-    
-    Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
-    
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
     <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
-    
-    provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
 
 </footer>
         </div>
       </div>
-
     </section>
-
   </div>
-  
-
-  <script type="text/javascript">
+  <script>
       jQuery(function () {
           SphinxRtdTheme.Navigation.enable(true);
       });
-  </script>
-
-  
-  
-    
-   
+  </script> 
 
 </body>
 </html>
