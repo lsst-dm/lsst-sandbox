@@ -1,0 +1,16 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: transfer-ingest-monitor
+spec:
+  destination:
+    server: https://kubernetes.default.svc
+    namespace: lsst-dm-transfer-ingest-monitor
+  project: default
+  source:
+    path: charts/transfer-ingest-monitor-interface
+    repoURL: https://github.com/lsst-dm/transfer-ingest-monitor.git
+    targetRevision: main
+  syncPolicy:
+    syncOptions:
+      - CreateNamespace=true
