@@ -19,8 +19,8 @@
 
 # -- Project information -----------------------------------------------------
 
-project = 'LSST Sandbox'
-copyright = '2021'
+project = 'Kubernetes Sandbox'
+copyright = '2022'
 author = 'T. Andrew Manning'
 
 # The short X.Y version
@@ -107,7 +107,7 @@ html_static_path = ['_static']
 # -- Options for HTMLHelp output ---------------------------------------------
 
 # Output file base name for HTML help builder.
-htmlhelp_basename = 'LSSTSandboxdoc'
+htmlhelp_basename = 'KubernetesSandboxdoc'
 
 
 # -- Options for LaTeX output ------------------------------------------------
@@ -134,7 +134,7 @@ latex_elements = {
 # (source start file, target name, title,
 #  author, documentclass [howto, manual, or own class]).
 latex_documents = [
-    (master_doc, 'LSSTSandbox.tex', 'LSST Sandbox Documentation',
+    (master_doc, 'KubernetesSandbox.tex', 'Kubernetes Sandbox Documentation',
      'T. Andrew Manning', 'manual'),
 ]
 
@@ -144,7 +144,7 @@ latex_documents = [
 # One entry per manual page. List of tuples
 # (source start file, name, description, authors, manual section).
 man_pages = [
-    (master_doc, 'lsstsandbox', 'LSST Sandbox Documentation',
+    (master_doc, 'kubernetessandbox', 'Kubernetes Sandbox Documentation',
      [author], 1)
 ]
 
@@ -155,8 +155,8 @@ man_pages = [
 # (source start file, target name, title, author,
 #  dir menu entry, description, category)
 texinfo_documents = [
-    (master_doc, 'LSSTSandbox', 'LSST Sandbox Documentation',
-     author, 'LSSTSandbox', 'One line description of project.',
+    (master_doc, 'KubernetesSandbox', 'Kubernetes Sandbox Documentation',
+     author, 'KubernetesSandbox', 'One line description of project.',
      'Miscellaneous'),
 ]
 
